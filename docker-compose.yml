@@ -1,0 +1,16 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: whatsapp-testes-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: whatsapp_testes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - whatsapp_testes_pgdata:/var/lib/postgresql/data
+
+volumes:
+  whatsapp_testes_pgdata:
